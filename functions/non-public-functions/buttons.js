@@ -70,9 +70,9 @@ module.exports = async function buttonss(content, options, client, message) {
             label: x.label,
             custom_id: x.id || null,
             emoji: {
-                name: null,
-                id: null,
-                animated: false,
+                name: x.emoji.name || null,
+                id: x.emoji.id || null,
+                animated: x.emoji.animated || false,
             },
             url: x.url || null
         }
