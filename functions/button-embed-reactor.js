@@ -29,7 +29,7 @@ async function ButtonPaginator(message, pages, buttons = [], time = 60000) {
                 if (button.id == "back") {
                     if (i !== 0) i--;
                 } else if (button.id == "next") {
-                    if (i !== pages.length - 1) i++;
+                    if (i !== pages.length + 1) i++;
                 }
                 if (message.client.channels.cache.get(msg.channelID)?.messages.cache.get(msg.id).author.id == message.client.user.id) message.client.channels.cache.get(msg.channelID).messages.cache.get(msg.id).edit(`Page ${i + 1} / ${pages.length}`, pages[i+1])
             }
