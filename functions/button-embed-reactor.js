@@ -22,6 +22,7 @@ async function ButtonPaginator(message, pages, buttons = [], time = 60000) {
                 uid: a.author.id
             };
         });
+        let pageCount = 0;
         message.client.on('clickButton', button => {
             if (msg.uid === button.message.author.id) {
                 let i = Number(button.message.content.split("Page")[1].split("/")[0]) - 1;
@@ -30,7 +31,7 @@ async function ButtonPaginator(message, pages, buttons = [], time = 60000) {
                 } else if (button.id == "next") {
                     if (i !== pages.length - 1) i++;
                 }
-                if (message.client.channels.cache.get(msg.channelID)?.messages.cache.get(msg.id).author.id == message.client.user.id) message.client.channels.cache.get(msg.channelID).messages.cache.get(msg.id).edit(`Page ${i + 1} / ${pages.length}`, pages[i])
+                if (message.client.channels.cache.get(msg.channelID)?.messages.cache.get(msg.id).author.id == message.client.user.id) message.client.channels.cache.get(msg.channelID).messages.cache.get(msg.id).edit(`Page ${i + 1} / ${pages.length}`, pages[i+1])
             }
         });
     };
