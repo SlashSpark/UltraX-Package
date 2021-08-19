@@ -24,7 +24,7 @@ async function ButtonPaginator(message, pages, buttons = [], time = 60000) {
         });
         message.client.on('clickButton', button => {
             if (msg.uid === button.message.author.id) {
-                let i = button.message.content.split("Page")[1].split("/")[0] - 1;
+                let i = Number(button.message.content.split("Page")[1].split("/")[0]) - 1;
                 if (button.id == "back") {
                     if (i !== 0) i--;
                 } else if (button.id == "next") {
